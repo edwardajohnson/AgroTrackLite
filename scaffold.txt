@@ -1,0 +1,23 @@
+/src
+  /agents
+    intake.ts         # HCS log from SMS intents
+    match.ts          # price/logistics suggestion
+    escrow.ts         # HTS/HSCS create/release (return-byte)
+    delivery.ts       # HCS delivery event
+    settlement.ts     # release+receipt
+  /hedra
+    client.ts         # hedera client factory (testnet)
+    hcs.ts            # consensus helpers
+    hts.ts            # token helpers
+  /nlp
+    router.ts         # classify/parse sms → JSON intents (zod validate)
+  /sms
+    gateway.ts        # stub today; swap to Africa's Talking later
+  /web
+    server.ts         # express API (webhooks + proof API)
+  /data
+    buyers.json
+    farmers.json
+index.ts
+.env.example
+
