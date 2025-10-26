@@ -21,3 +21,18 @@
 index.ts
 .env.example
 
+
+🧾 Summary
+Variable	Description	How to Create
+HEDERA_ACCOUNT_ID	Your main orchestrator account	Portal
+HEDERA_PRIVATE_KEY	Private key for above	Portal
+BUYER_ACCOUNT_ID	Simulated buyer	Portal or SDK
+ESCROW_ACCOUNT_ID	Escrow wallet	Portal or SDK
+FARMER_ACCOUNT_ID	Simulated farmer	Portal or SDK
+HCS_TOPIC_ID	Topic for transaction logs	Portal or SDK
+ESCROW_TOKEN_ID	Token ID for payments	Use SDK’s TokenCreateTransaction
+
+How to generate keys 
+
+npx ts-node src/createAccounts.ts
+
