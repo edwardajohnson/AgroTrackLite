@@ -1,7 +1,7 @@
 # 🌾 AgroTrack-Lite  
 AgroTrack-Lite 🌾 (Hedera AI + DePIN, SMS-first)
 Built for the **Hedera Africa Hackathon 2025**
-DO NOT USE THE frontend directory
+
 ---
 
 ## 🚀 Overview
@@ -54,6 +54,8 @@ npm run dev
 cd dashboard
 npm install
 npm run dev
+
+Note do not use the directory called "frontend" Instead use the "dashboard" directory
 ```
 
 ## 🚀 Quickstart
