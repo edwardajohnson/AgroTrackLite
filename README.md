@@ -12,8 +12,6 @@ Low-cost, SMS-first marketplace + escrow for smallholder farmers. Farmers text u
 ## 🧭 Architecture (MVP)
 
 
-## 🚀 Quickstart
-
 ## 🖥️ Judge Dashboard (HCS Viewer)
 
 This repo contains a minimal React dashboard under `dashboard/` to visualize Hedera Consensus Service messages and pending OTPs.
@@ -28,7 +26,7 @@ cd dashboard
 npm install
 npm run dev
 
-
+## 🚀 Quickstart
 
 ```bash
 git clone https://github.com/edwardajohnson/AgroTrackLite.git
