@@ -2,6 +2,11 @@
 AgroTrack-Lite 🌾 (Hedera AI + DePIN, SMS-first)
 Built for the **Hedera Africa Hackathon 2025**
 
+Just see about the pitch deck
+The link to pitch deck is: https://drive.google.com/file/d/1TrtgZuMIW0bRzgIxFhEOeHVzOkVq5LZC/view?usp=sharing
+
+Link to my certification is: https://explore.hashpack.app/nft/0.0.3872504/15973
+
 ---
 
 ## 🚀 Overview
