@@ -1,46 +1,41 @@
 {
   "name": "agrotrack-lite",
   "version": "0.1.0",
-  "description": "AgroTrack-Lite: AI + Hedera-powered SMS/USSD marketplace enabling smallholder farmers to access buyers, secure mobile payments, and transparent on-chain trade.",
-  "private": true,
-  "type": "module",
-  "main": "dist/index.js",
+  "description": "AI + DePIN hackathon project for Hedera Africa: AgroTrack-Lite — SMS-based marketplace and escrow for small farmers.",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
+    "dev": "nodemon --watch src --ext ts --exec ts-node --esm src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "lint": "eslint ."
+    "start": "node dist/index.js"
   },
-  "repository": {
+ "repository": {
     "type": "git",
     "url": "git+https://github.com/edwardajohnson/AgroTrackLite.git"
   },
+  "keywords": ["hedera", "agriculture", "sms", "escrow", "ai", "DePIN"],
+  "author": "Edward Johnson",
+  "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/edwardajohnson/AgroTrackLite/issues"
   },
   "homepage": "https://github.com/edwardajohnson/AgroTrackLite#readme",
-  "keywords": [],
-  "author": "Edward Johnson",
-  "license": "ISC",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "dependencies": {
-    "@hashgraph/sdk": "^2.75.0",
-    "axios": "^1.12.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "langchain": "^1.0.1",
-    "openai": "^6.7.0",
-    "zod": "^4.1.12"
-  },
   "devDependencies": {
     "@types/node": "^24.9.1",
     "eslint": "^9.38.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.75.0",
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "langchain": "^1.0.1",
+    "openai": "^4.0.0",
+    "zod": "^3.23.8"
   }
 }
 
