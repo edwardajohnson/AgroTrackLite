@@ -22,7 +22,7 @@ This repo contains a minimal React dashboard under `dashboard/` to visualize Hed
 npm run dev
 ```
 
-# Frontend (dashboard/)
+## Frontend (dashboard/)
 cd dashboard
 npm install
 npm run dev
@@ -39,6 +39,7 @@ npm run dev
 ## Health check:
 
 GET http://localhost:3000/health  → ok
+
 
 ## 🧪 Test via cURL
 
@@ -58,7 +59,7 @@ curl -X POST http://localhost:3000/webhook/sms \
   -d "text=Delivered 198kg OTP 553904 Grade B"
 
 
-View logs:
+## View logs:
 
 cat logs/sms-$(date +%F).log
 
@@ -122,7 +123,7 @@ MIT
 
 ---
 
-# 2) Add `.env.example`
+##  `.env.example`
 
 Create `.env.example`:
 
