@@ -73,6 +73,7 @@ GET http://localhost:3000/health  → ok
 
 ## 🧪 Test via cURL
 
+Farmer sends delivery
 Create listing:
 
 curl -X POST http://localhost:3000/webhook/sms \
@@ -81,6 +82,7 @@ curl -X POST http://localhost:3000/webhook/sms \
   -d "text=Maize 200kg Kisumu"
 
 
+Buyer confirms delivery
 Confirm delivery:
 
 curl -X POST http://localhost:3000/webhook/sms \
@@ -92,6 +94,12 @@ curl -X POST http://localhost:3000/webhook/sms \
 ## View logs:
 
 cat logs/sms-$(date +%F).log
+
+Expected topic log entries:
+
+DeliveryRecorded
+BuyerConfirmed
+EscrowReleased
 
 ## ⚙️ Environment
 ```
