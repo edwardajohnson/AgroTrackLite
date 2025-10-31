@@ -1,3 +1,4 @@
+// src/index.ts
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -7,6 +8,7 @@ import path from 'path';
 import { parseIntent } from './nlp/router.ts';
 import { handleIntent } from './workflow/handleIntent.ts';
 import { initTopic, currentTopicId } from './hedera/hcsLogger.ts';
+import { registerApiRoutes } from './api/messages.ts';
 
 const app = express();
 app.use(cors());
@@ -52,7 +54,7 @@ app.post('/webhook/sms', async (req, res) => {
     // Log inbound message + parsed intent (console + file)
     logInbound(from, text, intent);
 
-    // Run business workflow (this will also send/log the outbound SMS)
+    // Run business workflow (also sends/logs outbound SMS)
     await handleIntent(from, intent);
 
     // Respond with useful JSON for curl/Postman
@@ -72,10 +74,12 @@ app.post('/webhook/sms', async (req, res) => {
   }
 });
 
+/** 🔌 Register API routes (HCS messages, pending OTPs, demo runner) */
+registerApiRoutes(app);
+
 const PORT = Number(process.env.PORT) || 3000;
 app.listen(PORT, async () => {
   console.log(`🚀 AgroTrack-Lite API running on http://localhost:${PORT}`);
-
   // Initialize (or auto-create) the HCS topic on startup so we have a ready ID.
   try {
     await initTopic();

@@ -1,0 +1,98 @@
+{
+  "info": {
+    "name": "AgroTrack-Lite API",
+    "_postman_id": "f47b2c80-2d41-45ee-b6a7-91e4a8f4761a",
+    "description": "Postman collection for testing AgroTrack-Lite webhook and health endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Webhook - Delivery Confirmation",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "from", "value": "+254700000001" },
+            { "key": "text", "value": "Delivered 200kg OTP 553904 Grade A" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/webhook/sms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["webhook", "sms"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Webhook - New Listing",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "from", "value": "+254700000002" },
+            { "key": "text", "value": "Maize 200kg Kisumu" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/webhook/sms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["webhook", "sms"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Webhook - Invalid Input",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "from", "value": "" },
+            { "key": "text", "value": "Hello" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/webhook/sms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["webhook", "sms"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
+
