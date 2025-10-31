@@ -17,17 +17,20 @@ Low-cost, SMS-first marketplace + escrow for smallholder farmers. Farmers text u
 This repo contains a minimal React dashboard under `dashboard/` to visualize Hedera Consensus Service messages and pending OTPs.
 
 ### Run
+
 ```bash
 # Backend (root)
 npm run dev
 ```
 
 ## Frontend (dashboard/)
+
 cd dashboard
 npm install
 npm run dev
 
 ## 🚀 Quickstart
+
 ```bash
 git clone https://github.com/edwardajohnson/AgroTrackLite.git
 cd AgroTrackLite
@@ -70,13 +73,15 @@ See .env.example. Minimum:
 HEDERA_NETWORK=testnet
 HEDERA_ACCOUNT_ID=0.0.xxxxx
 HEDERA_PRIVATE_KEY=302e02...
-# Optional: leave blank to auto-create
+
+## Optional: leave blank to auto-create
 HCS_TOPIC_ID=
 NLP_MODE=rules   # or ai
 OPENAI_API_KEY=  # if NLP_MODE=ai
 PORT=3000
 
 ## 📂 Project Structure
+
 src/
   agents/        # (optional) AI agent(s)
   hedera/        # hcsLogger.ts
