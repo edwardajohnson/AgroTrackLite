@@ -11,3 +11,11 @@ Low-cost, SMS-first marketplace + escrow for smallholder farmers. Farmers text u
 
 ## 🧭 Architecture (MVP)
 
+
+## 🚀 Quickstart
+```bash
+git clone https://github.com/edwardajohnson/AgroTrackLite.git
+cd AgroTrackLite
+cp .env.example .env               # fill values
+npm install
+npm run dev
