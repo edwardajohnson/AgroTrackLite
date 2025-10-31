@@ -1,7 +1,7 @@
 # 🌾 AgroTrack-Lite  
 AgroTrack-Lite 🌾 (Hedera AI + DePIN, SMS-first)
 Built for the **Hedera Africa Hackathon 2025**
-
+DO NOT USE THE frontend directory
 ---
 
 ## 🚀 Overview
