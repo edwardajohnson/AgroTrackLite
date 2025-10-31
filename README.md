@@ -20,6 +20,7 @@ This repo contains a minimal React dashboard under `dashboard/` to visualize Hed
 ```bash
 # Backend (root)
 npm run dev
+```
 
 # Frontend (dashboard/)
 cd dashboard
@@ -27,18 +28,19 @@ npm install
 npm run dev
 
 ## 🚀 Quickstart
-
 ```bash
 git clone https://github.com/edwardajohnson/AgroTrackLite.git
 cd AgroTrackLite
 cp .env.example .env               # fill values
 npm install
 npm run dev
-Health check:
+```
+
+## Health check:
 
 GET http://localhost:3000/health  → ok
 
-🧪 Test via cURL
+## 🧪 Test via cURL
 
 Create listing:
 
@@ -60,7 +62,7 @@ View logs:
 
 cat logs/sms-$(date +%F).log
 
-⚙️ Environment
+## ⚙️ Environment
 
 See .env.example. Minimum:
 
@@ -73,7 +75,7 @@ NLP_MODE=rules   # or ai
 OPENAI_API_KEY=  # if NLP_MODE=ai
 PORT=3000
 
-📂 Project Structure
+## 📂 Project Structure
 src/
   agents/        # (optional) AI agent(s)
   hedera/        # hcsLogger.ts
@@ -83,7 +85,7 @@ src/
   index.ts       # server + routes
 logs/            # rotating logs (created at runtime)
 
-🧠 AI Mode (optional)
+## 🧠 AI Mode (optional)
 
 Set NLP_MODE=ai and OPENAI_API_KEY. The AI agent will return structured intents and log them to HCS.
 
@@ -95,7 +97,7 @@ Find the topic ID in server startup logs (✅ HCS ready. Topic: 0.0.xxxxx)
 
 Open: https://hashscan.io/testnet/topic/<topicId>
 
-🛣️ Roadmap
+## 🛣️ Roadmap
 
  HTS escrow simulation (token mint/transfer)
 
@@ -105,7 +107,7 @@ Open: https://hashscan.io/testnet/topic/<topicId>
 
  Hedera Agent Kit actions (OTP verification, risk checks)
 
-🔒 Security
+## 🔒 Security
 
 Do not commit .env
 
@@ -113,7 +115,7 @@ Keys are for testnet only
 
 Validate and rate-limit real SMS gateways
 
-📜 License
+## 📜 License
 
 MIT
 
@@ -139,4 +141,5 @@ OPENAI_API_KEY=
 
 # Server
 PORT=3000
+```
 
