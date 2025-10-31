@@ -1,15 +1,40 @@
-# AgroTrack-Lite 🌾 (Hedera AI + DePIN, SMS-first)
+# 🌾 AgroTrack-Lite  
+AgroTrack-Lite 🌾 (Hedera AI + DePIN, SMS-first)
+Built for the **Hedera Africa Hackathon 2025**
 
-Low-cost, SMS-first marketplace + escrow for smallholder farmers. Farmers text updates; the system parses intent (rule-based or AI), logs events to **Hedera Consensus Service (HCS)**, and (next steps) simulates escrow with **Hedera Token Service (HTS)**. No smartphone or wallet app required.
+---
 
-## ✨ Features
-- 📱 **SMS-first UX** (works on basic phones)
-- 🧠 Intent parsing (rule-based now; AI agent optional)
-- 🧾 **On-chain audit trail** via HCS
-- 🧰 Clean TypeScript + Express skeleton, ready for Agent Kit
-- 🪵 Rotating SMS logs in `logs/sms-YYYY-MM-DD.log`
+## 🚀 Overview
 
-## 🧭 Architecture (MVP)
+AgroTrack-Lite is a lightweight, verifiable traceability system for agricultural trade.  
+It enables **farmers and buyers to confirm deliveries via SMS**, while the system logs all verified events on the **Hedera Consensus Service (HCS)** — ensuring transparency, trust, and auditability.
+
+The system can operate in **two modes**:
+- **Rule-based NLP** (fast local classification)
+- **Agentic AI NLP** (GPT-powered intent interpretation)
+
+---
+
+## 🧠 Key Features
+
+✅ Farmers send delivery details via SMS  
+✅ Buyers confirm deliveries with OTP  
+✅ Escrow logic releases payments automatically  
+✅ Events immutably logged to **Hedera HCS**  
+✅ Dashboard displays all transactions live  
+✅ Optional **AI NLP Mode** for free-text interpretation  
+✅ Built with modular, agent-ready architecture
+
+---
+
+## 🏗️ Architecture Summary
+
+```text
+Farmer/Buyer → Express API (SMS Webhook)
+             → NLP Router (rules or AI)
+             → Workflow Handler
+             → Hedera HCS (Immutable Logs)
+             → Dashboard Viewer (Live)
 
 
 ## 🖥️ Judge Dashboard (HCS Viewer)
