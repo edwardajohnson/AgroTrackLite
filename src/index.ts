@@ -9,6 +9,9 @@ import { parseIntent } from './nlp/router.ts';
 import { handleIntent } from './workflow/handleIntent.ts';
 import { initTopic, currentTopicId } from './hedera/hcsLogger.ts';
 import { registerApiRoutes } from './api/messages.ts';
+import { registerPlannerRoutes, initPlanner } from './agent/planner.ts';
+import { registerReportRoutes, startDailyReportScheduler } from './agent/report.ts';
+
 
 const app = express();
 app.use(cors());
@@ -39,6 +42,10 @@ function logInbound(from: string, text: string, intent: unknown) {
   }
 }
 
+/**
+ * Webhook for SMS (simulated or real gateway posts)
+ * - Supports rules NLP or AI NLP based on NLP_MODE env
+ */
 app.post('/webhook/sms', async (req, res) => {
   const from = String(req.body.from || '').trim();
   const text = String(req.body.text || '').trim();
@@ -49,7 +56,12 @@ app.post('/webhook/sms', async (req, res) => {
   }
 
   try {
-    const intent = parseIntent(text);
+    const useAI = (process.env.NLP_MODE || 'rules').toLowerCase() === 'ai';
+
+    // Dynamic import avoids ESM import-in-function errors and only loads AI when needed
+    const intent = useAI
+      ? await (await import('./nlp/ai.ts')).interpretFreeText(from, text)
+      : parseIntent(text);
 
     // Log inbound message + parsed intent (console + file)
     logInbound(from, text, intent);
@@ -63,19 +75,27 @@ app.post('/webhook/sms', async (req, res) => {
       topicId: currentTopicId() || null,
       from,
       text,
-      intent
+      intent,
     });
   } catch (e: any) {
     console.error('webhook error:', e?.message || e);
     res.status(200).json({
       status: 'error',
-      message: 'Unable to process message right now. Send "HELP" for commands.'
+      message: 'Unable to process message right now. Send "HELP" for commands.',
     });
   }
 });
 
 /** 🔌 Register API routes (HCS messages, pending OTPs, demo runner) */
 registerApiRoutes(app);
+
+/** 🧠 Planner API + background loop (retry queue, optional approvals) */
+registerPlannerRoutes(app);
+initPlanner();
+
+registerReportRoutes(app);
+startDailyReportScheduler();
+
 
 const PORT = Number(process.env.PORT) || 3000;
 app.listen(PORT, async () => {

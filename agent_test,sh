@@ -1,0 +1,7 @@
+curl -X POST http://localhost:3000/api/test/basic
+curl -X POST http://localhost:3000/api/report/run
+curl -X GET  http://localhost:3000/api/messages
+# Agent triggerring belo
+curl -X POST http://localhost:3000/api/agent/planner/run
+curl -X POST http://localhost:3000/api/agent/planner/check
+
